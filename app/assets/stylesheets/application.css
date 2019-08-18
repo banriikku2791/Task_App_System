@@ -27,3 +27,21 @@
   color: silver !important;
   text-decoration: none;
 }
+
+#dropdown-title {
+    background-color: teal;
+}
+
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    color: #777777;
+    white-space: nowrap;
+}
+
+.dropdown-header:hover {
+  color: silver !important;
+  text-decoration: none;
+}
