@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'tasks/top'
 
   root 'static_pages#top'
   get '/signup', to: 'users#new'
@@ -10,5 +9,8 @@ Rails.application.routes.draw do
   get    'guestadmin/login', to: 'sessions#create2'
   get    'guest/login', to: 'sessions#create3'
   
-  resources :users
+  resources :users do
+    resources :tasks
+  end
+
 end
