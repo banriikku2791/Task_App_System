@@ -1,0 +1,30 @@
+<% provide(:title, current_user.name) %>
+  <h1><%= current_user.name %>のタスク一覧</h1>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <%= link_to "タスク新規作成", new_user_task_path(@current_user),  method: :get, class: "btn btn-lg btn-primary pull-right" %>
+      <table class="table table-hover" id="table-tasks">
+        <thead>
+          <tr>
+            <th class="left">名称</th>
+            <th class="left">作成日</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @user.tasks.each do |task| %>
+          <tr>
+            <td class="left"><%= task.name %></td>
+            <td class="left"><%= l(task.created_at, format: :long) %></td>
+            <td class="left">
+              <%= link_to "編集", edit_user_task_path(current_user,task), class: "btn btn-success" %>
+              <%= link_to "削除", user_task_path(current_user,task), method: :delete,
+                  data: { confirm: "削除してよろしいですか？" }, class: "btn btn-danger" %>
+
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<!--モーダルウインドウ表示-->
+<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
