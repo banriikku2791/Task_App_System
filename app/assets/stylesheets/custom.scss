@@ -101,3 +101,10 @@ p {
     color: $state-danger-text;
   }
 }
+
+li {
+  .dropdown-header{
+    background-color: rgba(200,200,0,5);
+    font-weight: bold;
+  }
+}
