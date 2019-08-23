@@ -8,9 +8,18 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.find(params[:id])
   end
+  
+  # paramsハッシュからユーザーを取得します。
+  def set_users
+    @user = User.find(params[:user_id])
+  end
 
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def set_tasks
+    @task = Task.find(params[:user_id])
   end
 
   # ログイン済みのユーザーか確認します。
@@ -24,20 +33,18 @@ class ApplicationController < ActionController::Base
 
   # アクセスしたユーザーが現在ログインしているユーザーか確認します。
   def correct_user
-    redirect_to(root_url) unless current_user?(@user)
+    unless current_user?(@user)
+      flash[:danger] = "他者の参照および編集権限がありません。"
+      redirect_to(root_url)
+    end  
   end
 
   # システム管理権限所有かどうか判定します。
   def admin_user
-    redirect_to root_url unless current_user.admin?
-  end
-
-  # 管理権限者、または現在ログインしているユーザーを許可します。
-  def admin_or_correct_user
-    unless current_user?(@user) || current_user.admin?
+    unless current_user.admin?
       flash[:danger] = "参照および編集権限がありません。"
       redirect_to(root_url)
-    end  
+    end     
   end
 
 end
