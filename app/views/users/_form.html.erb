@@ -4,9 +4,9 @@
   <%= f.text_field :name, class: "form-control" %>
   <%= f.label :email, class: "label-#{yield(:class_text)}" %>
   <%= f.email_field :email, class: "form-control" %>
-  <%= f.label :password_digest, class: "label-#{yield(:class_text)}" %>
-  <%= f.password_field :password_digest, class: "form-control" %>
-  <%= f.label :remember_digest, class: "label-#{yield(:class_text)}" %>
-  <%= f.password_field :remember_digest, class: "form-control" %>
+  <%= f.label :password, class: "label-#{yield(:class_text)}" %>
+  <%= f.password_field :password, class: "form-control" %>
+  <%= f.label :password_confirmation, class: "label-#{yield(:class_text)}" %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
 <% end %>

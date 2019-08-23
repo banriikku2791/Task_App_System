@@ -6,7 +6,7 @@
     <p>TaskAppは簡易ToDo管理ツールです。</p>
     <p>↓↓初めてのご利用↓↓</p>
       <% if logged_in? %>
-        <%= link_to "アカウント作成", signup_path , class: "btn btn-lg btn-success" ,disabled: 'disabled' %>
+        <%= link_to "アカウント作成", "#", class: "btn btn-lg btn-success" ,disabled: "disabled" %>
       <% else %>
         <%= link_to "アカウント作成", signup_path , class: "btn btn-lg btn-success" %>
         <div style="margin-top: 10px;">
@@ -26,7 +26,7 @@
       <%= f.password_field :password, class: 'form-control', readonly: 'readonly' %>
       <%= f.label :remember_me, class: "checkbox inline checkbox-#{yield(:class_text)}", for: "remember-me" do %>
       <% end %>
-      <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-#{yield(:class_text)}",disabled: 'disabled' %>
+      <%= f.submit "ログイン状態です", class: "btn btn-primary btn-block btn-#{yield(:class_text)}",disabled: "disabled" %>
     <% else %>
       <%= f.label :email, "メールアドレス", class: "label-#{yield(:class_text)}" %>
       <%= f.email_field :email, class: 'form-control' %>
